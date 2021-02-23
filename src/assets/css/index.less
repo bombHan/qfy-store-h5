@@ -1,0 +1,204 @@
+.loop(@num) when (@num >=0) {
+    .p@{num} {
+        padding: (0.013333rem * @num);
+    }
+
+    .plr@{num} {
+        padding: 0 (0.013333rem * @num);
+    }
+
+    .pt@{num} {
+        padding-top: (0.013333rem * @num);
+    }
+
+    .pr@{num} {
+        padding-right: (0.013333rem * @num);
+    }
+
+    .pb@{num} {
+        padding-bottom: (0.013333rem * @num);
+    }
+
+    .pl@{num} {
+        padding-left: (0.013333rem * @num);
+    }
+
+    .m@{num} {
+        margin: (0.013333rem * @num);
+    }
+
+    .mt@{num} {
+        margin-top: (0.013333rem * @num);
+    }
+
+    .mr@{num} {
+        margin-right: (0.013333rem * @num);
+    }
+
+    .mb@{num} {
+        margin-bottom: (0.013333rem * @num);
+    }
+
+    .ml@{num} {
+        margin-left: (0.013333rem * @num);
+    }
+
+    .loop((@num - 5));
+}
+
+.loop(50);
+
+
+#app {
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    background: rgba(242, 242, 242, 1);
+}
+
+body,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div,
+ol,
+ul,
+li,
+dt,
+dd {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    vertical-align: top;
+    border: none;
+}
+
+.fr {
+    float: right;
+}
+
+.fl {
+    float: left;
+}
+
+.overflow {
+    overflow: hidden;
+}
+
+.textcenter {
+    text-align: center;
+}
+
+.star-bit::before {
+    display: inline-block;
+    margin-right: 4px;
+    color: #f5222d;
+    font-size: 14px;
+    font-family: SimSun, sans-serif;
+    line-height: 1;
+    content: "*";
+}
+
+.ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.linethrou {
+    text-decoration: line-through;
+}
+
+.bgwhite {
+    background-color: #fff;
+}
+
+.pingFang {
+    font-family: PingFang;
+}
+
+.fw {
+    font-weight: bold;
+}
+
+.radius30 {
+    border-radius: 0.4rem;
+    overflow: hidden;
+}
+
+.color00 {
+    color: rgba(0, 0, 0, 1);
+}
+
+.color51 {
+    color: rgba(51, 51, 51, 1);
+}
+
+.color128 {
+    color: rgba(128, 128, 128, 1);
+}
+
+.color255 {
+    color: rgba(255, 255, 255, 1);
+}
+
+.colorred {
+    color: rgba(250, 98, 98, 1);
+}
+
+.colorblue {
+    color: #3E7BF8;
+}
+
+.bgcolorblue {
+    background-color: rgba(62, 123, 248, 1);
+}
+
+.fontSize0 {
+    font-size: 0;
+}
+
+.fontSize20 {
+    font-size: 0.26rem;
+}
+
+.fontSize24 {
+    font-size: 0.32rem;
+}
+
+.fontSize26 {
+    font-size: 0.346666rem;
+}
+
+.fontSize28 {
+    font-size: 0.373333rem;
+}
+
+.fontSize30 {
+    font-size: 0.4rem;
+}
+
+.holdpic {
+    text-align: center;
+    padding-top: 1.5rem;
+
+    img {
+        width: 222px;
+    }
+
+    p {
+        font-size: 12px;
+        text-align: center;
+        margin-top: 10px;
+        color: rgba(51, 51, 51, 1);
+    }
+}

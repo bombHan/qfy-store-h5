@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>微信登录</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  </head>
+
+  <body>
+    <script>
+      var GWC = {
+        version: "1.2.0",
+        urlParams: {},
+        getUrlParams: function() {
+          var pairs = location.search.substring(1).split("&");
+          for (var i = 0; i < pairs.length; i++) {
+            var pos = pairs[i].indexOf("=");
+            if (pos === -1) {
+              continue;
+            }
+            GWC.urlParams[pairs[i].substring(0, pos)] = decodeURIComponent(
+              pairs[i].substring(pos + 1)
+            );
+          }
+        },
+        doRedirect: function() {
+          var code = GWC.urlParams["code"];
+          var state = GWC.urlParams["state"];
+          var uri = GWC.urlParams["uri"];
+          if (!code) {
+            window.location.href = `${window.location.origin}/#${uri}`;
+          } else {
+            $.ajax({
+              type: "POST",
+              contentType: "application/json;charset=UTF-8",
+              dataType: "json",
+              url: `/api/open/main`,
+              // url: `http://192.168.1.130:8012/api/open/main`,
+              data: JSON.stringify({
+                data: JSON.stringify({
+                  code: code
+                }),
+                method: "fwhRegister"
+              }),
+              success: function(e) {
+                if (e.code == 200 && e.data && e.data.token) {
+                  let token = e.data.token;
+                  window.localStorage.removeItem("token")
+                  window.localStorage.setItem("token", token);
+                  window.location.href = `${window.location.origin}/#${uri}`;
+                }
+              },
+              error: function(e) {
+                console.log(e);
+              }
+            });
+          }
+        }
+      };
+      GWC.getUrlParams();
+      GWC.doRedirect();
+    </script>
+  </body>
+</html>
